@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="423.0" prefWidth="709.0" stylesheets="@../css/tabla.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aragon.unam.mx.controlador.InicioController">
+   <left>
+      <VBox prefHeight="407.0" prefWidth="376.0" BorderPane.alignment="CENTER">
+         <children>
+            <FlowPane prefHeight="406.0" prefWidth="313.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="55.0" prefWidth="376.0" spacing="1.0">
+                     <children>
+                        <ImageView fitHeight="47.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../Formulario/src/aragon/unam/mx/recursos/logo.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Solicitud Credito Personal" textFill="#b29513">
+                           <font>
+                              <Font name="DejaVu Serif Condensed Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="47.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../Formulario/src/aragon/unam/mx/recursos/logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="27.0" prefWidth="349.0">
+                     <children>
+                        <Label text="INFORMACION DEL CREDITO" textFill="#b29513" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="36.0" prefWidth="373.0" spacing="4.0">
+                     <children>
+                        <Label text="Monto solicitado:" />
+                        <TextField fx:id="txtMonto" prefHeight="24.0" prefWidth="74.0" promptText="Monto" />
+                        <Label text="Cuenta:" />
+                        <TextField fx:id="txtCuenta" prefHeight="24.0" prefWidth="90.0" promptText="No.Cuenta" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="25.0" prefWidth="363.0">
+                     <children>
+                        <Label text="Plazo del credito:" />
+                        <ChoiceBox fx:id="chcCredito" prefHeight="24.0" prefWidth="98.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="28.0" prefWidth="346.0">
+                     <children>
+                        <Label text="INFORMACION PERSONAL" textFill="#b29513" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER" prefHeight="27.0" prefWidth="348.0">
+                     <children>
+                        <Label text="Nombre(s):" />
+                        <TextField fx:id="txtNombre" prefHeight="24.0" prefWidth="81.0" promptText="Nombre" />
+                        <Label text="Apellido Paterno:" />
+                        <TextField fx:id="txtApellidoPaterno" prefHeight="24.0" prefWidth="80.0" promptText="Paterno" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="30.0" prefWidth="350.0">
+                     <children>
+                        <Label text="Apellido Materno:" />
+                        <TextField fx:id="txtApellidoMaterno" prefHeight="24.0" prefWidth="85.0" promptText="Materno" />
+                        <Label text="Nacionalidad:" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="30.0" prefWidth="367.0">
+                     <children>
+                        <Label text="RFC:" />
+                        <TextField fx:id="txtRfc" prefHeight="24.0" prefWidth="105.0" promptText="RFC " />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="29.0" prefWidth="371.0" />
+                  <HBox alignment="CENTER" prefHeight="32.0" prefWidth="371.0">
+                     <children>
+                        <Label text="Celular:" />
+                        <TextField fx:id="txtCelular" prefHeight="24.0" prefWidth="80.0" promptText="Celular" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="49.0" prefWidth="377.0" spacing="30.0">
+                     <children>
+                        <Button fx:id="btnAlmacenar" mnemonicParsing="false" onAction="#almacenar" text="Almacenar" />
+                        <Button fx:id="btnSalir" mnemonicParsing="false" onAction="#salir" prefHeight="24.0" prefWidth="78.0" text="Salir" />
+                     </children>
+                  </HBox>
+               </children>
+            </FlowPane>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <TableView fx:id="tbwTabla" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="tbcNombre" prefWidth="75.0" text="Nombre" />
+          <TableColumn fx:id="tbcCuenta" prefWidth="87.0" text="Cuenta" />
+            <TableColumn fx:id="tbcMonto" prefWidth="87.0" text="Monto" />
+            <TableColumn fx:id="tbcAccion" prefWidth="87.0" text="Accion" />
+        </columns>
+      </TableView>
+   </center>
+</BorderPane>
