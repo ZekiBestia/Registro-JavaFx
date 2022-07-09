@@ -124,6 +124,7 @@ public class InicioController extends BaseController implements Initializable {
 
 	@FXML
 	void almacenar(ActionEvent event) {
+		if(this.verificar()) {
 		Persona captura = new Persona();
 		captura.nombreProperty().set(txtNombre.getText());
 		captura.montoProperty().set(Float.parseFloat(txtMonto.getText()));
@@ -131,16 +132,15 @@ public class InicioController extends BaseController implements Initializable {
 		captura.getCredito().set(chcCredito.getValue());
 		captura.getApellidoPaterno().set(txtApellidoPaterno.getText());
 		captura.getApellidoMaterno().set(txtApellidoMaterno.getText());
-		// captura.getFechaNacimiento().set(dtpFechaNacimiento.getAccessibleText());
 		captura.getRfc().set(txtRfc.getText());
 		captura.getNacionalidad().set(chcNacionalidad.getValue());
-		// captura.getSexo().set(chcSexo.getValue());
-		// captura.getGradoEstudios().set(chcEstudio.getValue());
-		// captura.getTelefonoCasa().set(txtCasa.getText());
 		captura.getTelefonoCelular().set(txtCelular.getText());
 		datos.add(captura);
 		this.limpiar();
-
+		this.cerrarVentana(btnSalir);
+		}else {
+			this.ventanaEmergente("ERROR", "Coloque bien los datos", this.mensajes);
+		}
 	}
 
 	@SuppressWarnings("unchecked")
@@ -152,14 +152,11 @@ public class InicioController extends BaseController implements Initializable {
 		this.txtCuenta.clear();
 		this.txtCurp.clear();
 		this.txtRfc.clear();
-		// this.txtCasa.clear();
 		this.txtCelular.clear();
 		this.txtMonto.clear();
 		this.chcCredito.getItems().clear();
-		// this.chcEstudio.getItems().clear();
 		this.chcNacionalidad.getItems().clear();
 		this.dtpFechaNacimiento.getEditor().clear();
-		// this.chcSexo.getItems().clear();
 		this.rdbCasado.setSelected(false);
 		this.rdbCasado.requestFocus();
 		this.rdbCasado.getTypeSelector();
@@ -190,6 +187,7 @@ public class InicioController extends BaseController implements Initializable {
 		this.verificarEntrada(txtCelular, TipoError.CELULAR);
 		this.verificarEntrada(txtCurp, TipoError.CURP);
 		this.verificarEntrada(txtCuenta, TipoError.CUENTA);
+		this.verificarEntrada(txtMonto, TipoError.MONTO);
 		this.chcNacionalidad.getItems().addAll("Canadiense", "Estadounidense", "Alemana", "Rusa");
 		this.chcCredito.getItems().addAll("12", "6", "28");
 		this.rdbFemenino.setUserData(new RadioButton("Ana"));
@@ -348,6 +346,49 @@ public class InicioController extends BaseController implements Initializable {
 			}
 
 		}
+		
+		if ((this.txtMonto.getText() == null) || (this.txtMonto != null && this.txtMonto.getText().isEmpty())) {
+			this.mensajes += "El monto no es valido, complete el campo\n";
+			valido = false;
+		}
+		if ((this.txtMonto.getText() == null) || (this.txtMonto != null && !this.txtMonto.getText().isEmpty())) {
+			try {
+				if (!this.montoValido) {
+					throw new NumberFormatException();
+				}
+				Float.parseFloat(this.txtMonto.getText());
+			} catch (NumberFormatException ex) {
+				this.mensajes += "El monto no es valido, debe de contener decimales\n";
+				valido = false;
+			}
+
+		}
+		
+		if ((this.txtCelular.getText() == null)
+				|| (this.txtCelular.getText() != null && this.txtCelular.getText().isEmpty())) {
+			this.mensajes += "El celular no es valido , complete el espacio\n";
+			valido = false;
+		}
+		if ((this.txtCelular.getText() == null)
+				|| (this.txtCelular.getText() != null && !this.txtCelular.getText().isEmpty())) {
+			if (!this.celularValido) {
+				this.mensajes += "El celular no es valido, minimo 10 digitos , maximo 10 digitos\n";
+				valido = false;
+			}
+		}
+		if ((this.txtCurp.getText() == null)
+				|| (this.txtCurp.getText() != null && this.txtCurp.getText().isEmpty())) {
+			this.mensajes += "El celular no es valido , complete el espacio\n";
+			valido = false;
+		}
+		if ((this.txtCurp.getText() == null)
+				|| (this.txtCurp.getText() != null && !this.txtCurp.getText().isEmpty())) {
+			if (!this.curpValido) {
+				this.mensajes += "La curp no es valida, EJEMPLO: SIHC400128HDFLLR01\n";
+				valido = false;
+			}
+		}
+		
 		
 		return valido;
 	}

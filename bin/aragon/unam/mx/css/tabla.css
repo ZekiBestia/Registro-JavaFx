@@ -2,12 +2,21 @@
 
 .text-input:error {
     -fx-text-fill: white;
-    -fx-border-insets: 0;
-    -fx-border-width: 2px;
+    -fx-border-insets: 0.0;
+    -fx-border-width: 2.0px;
     -fx-border-color: red;
     -fx-border-style: hidden hidden solid hidden;
-    -fx-background-color: derive(red, 99%);
+    -fx-background-color: derive(red, 99.0%);
 }
 .table-row-cell:selected-row {
     -fx-background-color: lightskyblue ;
+}
+.button:pressed {
+	-fx-background-color: #634209;
+}
+.button {
+	-fx-background-color: #b29513;
+}
+.button:hover {
+	-fx-background-color:  #40E0D0 ;
 }

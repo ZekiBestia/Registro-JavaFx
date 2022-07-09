@@ -19,7 +19,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="423.0" prefWidth="709.0" stylesheets="@../css/tabla.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aragon.unam.mx.controlador.InicioController">
    <left>
-      <VBox prefHeight="423.0" prefWidth="384.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="423.0" prefWidth="384.0" style="-fx-background-color: #9f9f9f;" BorderPane.alignment="CENTER">
          <children>
             <FlowPane prefHeight="406.0" prefWidth="393.0">
                <children>
@@ -30,9 +30,9 @@
                               <Image url="@../../../../../../Formulario/src/aragon/unam/mx/recursos/logo.png" />
                            </image>
                         </ImageView>
-                        <Label text="Solicitud Credito Personal" textFill="#b29513">
+                        <Label style="-fx-background-color: #b29513;" text="Solicitud Credito Personal">
                            <font>
-                              <Font name="DejaVu Serif Condensed Bold" size="16.0" />
+                              <Font name="C059-Bold" size="16.0" />
                            </font>
                         </Label>
                         <ImageView fitHeight="47.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
@@ -42,9 +42,9 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="27.0" prefWidth="372.0">
+                  <HBox alignment="CENTER" prefHeight="27.0" prefWidth="384.0">
                      <children>
-                        <Label text="INFORMACION DEL CREDITO" textFill="#b29513" />
+                        <Label style="-fx-background-color: #b29513;" text="INFORMACION DEL CREDITO" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="36.0" prefWidth="373.0" spacing="4.0">
@@ -63,7 +63,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="28.0" prefWidth="376.0">
                      <children>
-                        <Label text="INFORMACION PERSONAL" textFill="#b29513" />
+                        <Label style="-fx-background-color: #b29513;" text="INFORMACION PERSONAL" />
                      </children>
                   </HBox>
                   <HBox alignment="TOP_CENTER" prefHeight="27.0" prefWidth="348.0">
@@ -87,13 +87,13 @@
                         <Label text="RFC:" />
                         <TextField fx:id="txtRfc" prefHeight="24.0" prefWidth="105.0" promptText="RFC " />
                         <Label text="CURP" />
-                        <TextField fx:id="txtCurp" prefHeight="24.0" prefWidth="105.0" promptText="RFC " />
+                        <TextField fx:id="txtCurp" prefHeight="24.0" prefWidth="105.0" promptText="CURP" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="29.0" prefWidth="371.0">
                      <children>
                         <Label text="Fecha de nacimiento:" />
-                        <DatePicker prefHeight="24.0" prefWidth="168.0" />
+                        <DatePicker prefHeight="24.0" prefWidth="168.0" promptText="Nacimiento" />
                      </children></HBox>
                   <HBox alignment="CENTER" prefHeight="32.0" prefWidth="371.0">
                      <children>
@@ -122,7 +122,7 @@
                   <RadioButton fx:id="rdbUnionLibre" mnemonicParsing="false" text="Union Libre" toggleGroup="$estadoCivil" />
                </children>
             </FlowPane>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="45.0">
                <children>
                   <Button fx:id="btnAlmacenar" mnemonicParsing="false" onAction="#almacenar" text="Almacenar" />
                   <Button fx:id="btnSalir" mnemonicParsing="false" onAction="#salir" prefHeight="24.0" prefWidth="78.0" text="Salir" />
