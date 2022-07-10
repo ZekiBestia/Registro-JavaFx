@@ -1,13 +1,10 @@
 package aragon.unam.mx.controlador;
 
 import java.net.URL;
-import java.time.LocalDate;
-import java.time.temporal.Temporal;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import aragon.unam.mx.modelo.Persona;
-import aragon.unam.mx.modelo.*;
+import aragon.unam.mx.modelo.TipoError;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.css.PseudoClass;
@@ -34,9 +31,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 import javafx.util.converter.FloatStringConverter;
-import javafx.scene.control.TextField;
 
 public class InicioController extends BaseController implements Initializable {
+	@SuppressWarnings("unused")
 	private static final String RadioButton = null;
 	private String mensajes = "";
 
@@ -144,7 +141,6 @@ public class InicioController extends BaseController implements Initializable {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	private void limpiar() {
 		this.txtNombre.clear();
 		//this.chcCredito.getItems().clear();
@@ -391,9 +387,6 @@ public class InicioController extends BaseController implements Initializable {
 		
 		return valido;
 	}
-	private void inicializar(){
-		this.chcNacionalidad.getItems().addAll("Canadiense", "Estadounidense", "Alemana", "Rusa");
-		this.chcCredito.getItems().addAll("12", "6", "28");
-	}
+	
 
 }
