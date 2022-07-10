@@ -6,7 +6,8 @@
     -fx-border-width: 2.0px;
     -fx-border-color: red;
     -fx-border-style: hidden hidden solid hidden;
-    -fx-background-color: derive(red, 99.0%);
+    -fx-background-color: derive(   #f80f56 
+    , 99.0%);
 }
 .table-row-cell:selected-row {
     -fx-background-color: lightskyblue ;

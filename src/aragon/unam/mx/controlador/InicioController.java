@@ -2,6 +2,7 @@ package aragon.unam.mx.controlador;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.temporal.Temporal;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -146,7 +147,7 @@ public class InicioController extends BaseController implements Initializable {
 	@SuppressWarnings("unchecked")
 	private void limpiar() {
 		this.txtNombre.clear();
-		this.chcCredito.getItems().clear();
+		//this.chcCredito.getItems().clear();
 		this.txtApellidoMaterno.clear();
 		this.txtApellidoPaterno.clear();
 		this.txtCuenta.clear();
@@ -154,10 +155,10 @@ public class InicioController extends BaseController implements Initializable {
 		this.txtRfc.clear();
 		this.txtCelular.clear();
 		this.txtMonto.clear();
-		this.chcCredito.getItems().clear();
-		this.chcNacionalidad.getItems().clear();
+		//this.chcCredito.getItems().clear();
+		//this.chcNacionalidad.getItems().clear();
 		this.dtpFechaNacimiento.getEditor().clear();
-		this.rdbCasado.setSelected(false);
+		this.rdbCasado.setSelected(true);
 		this.rdbCasado.requestFocus();
 		this.rdbCasado.getTypeSelector();
 
@@ -195,8 +196,6 @@ public class InicioController extends BaseController implements Initializable {
 		this.rdbCasado.setUserData(new RadioButton("casado"));
 		this.rdbSoltero.setUserData(new RadioButton("soltero"));
 		this.rdbUnionLibre.setUserData(new RadioButton("libre"));
-		// this.dtpFechaNacimiento.getEditor();
-		// this.dtpFechaNacimiento.getValue(new DatePicker(LocalDate.now());
 		this.tbcNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 		this.tbcNombre.setCellFactory(TextFieldTableCell.forTableColumn());
 		this.tbcNombre.setOnEditCommit(t -> {
@@ -392,6 +391,9 @@ public class InicioController extends BaseController implements Initializable {
 		
 		return valido;
 	}
-	
+	private void inicializar(){
+		this.chcNacionalidad.getItems().addAll("Canadiense", "Estadounidense", "Alemana", "Rusa");
+		this.chcCredito.getItems().addAll("12", "6", "28");
+	}
 
 }
